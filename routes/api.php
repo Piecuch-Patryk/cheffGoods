@@ -21,3 +21,4 @@ Route::get('/categories', [CategoryController::class,'index'])->name('categories
 
 // Products
 Route::get('/products', [ProductController::class, 'index'])->name('products');
+Route::post('/products', [ProductController::class, 'store'])->name('product-store');
