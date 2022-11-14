@@ -18,6 +18,10 @@ use App\Http\Controllers\ProductController;
 
 // Categories
 Route::get('/categories', [CategoryController::class,'index']);
+Route::post('/category', [CategoryController::class, 'store']);
+Route::get('/category/{category}', [CategoryController::class, 'show']);
+Route::put('/category/{category}', [CategoryController::class, 'update']);
+Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
 
 // Products
 Route::get('/products', [ProductController::class, 'index']);
