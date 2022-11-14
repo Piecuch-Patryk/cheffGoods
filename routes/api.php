@@ -17,8 +17,9 @@ use App\Http\Controllers\ProductController;
 */
 
 // Categories
-Route::get('/categories', [CategoryController::class,'index'])->name('categories');
+Route::get('/categories', [CategoryController::class,'index']);
 
 // Products
-Route::get('/products', [ProductController::class, 'index'])->name('products');
-Route::post('/products', [ProductController::class, 'store'])->name('product-store');
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/product', [ProductController::class, 'store']);
+Route::get('/product/{product}', [ProductController::class, 'show']);
