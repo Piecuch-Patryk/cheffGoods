@@ -63,4 +63,15 @@ class ProductController extends Controller
     {
         return Product::destroy($id);
     }
+
+    /**
+     * Search for a title
+     *
+     * @param  str $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search($name)
+    {
+        return Product::where('title', 'like', '%' . $name . '%')->get();
+    }
 }
