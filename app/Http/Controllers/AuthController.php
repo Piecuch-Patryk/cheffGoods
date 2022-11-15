@@ -38,6 +38,31 @@ class AuthController extends Controller
     }
 
     /**
+     * Update user's data
+     *
+     * @param  \App\Http\Requests\StoreUserRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update(StoreUserRequest $request, User $user)
+    {
+        $fields = $request->all();
+        $user->update([
+            'name' => $fields['name'],
+            'email' => $fields['email'],
+            'password' => bcrypt($fields['password']),
+        ]);
+        
+        $token = $request->bearerToken();
+
+        $response = response([
+            'user' => $user,
+            'token' => $token,
+        ]);
+
+        return response($response, 201);
+    }
+
+    /**
      * Login user
      * 
      * @param \App\Http\Requests\LoginUserRequest $request

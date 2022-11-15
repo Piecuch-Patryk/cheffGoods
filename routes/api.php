@@ -2,9 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ use App\Http\Controllers\AuthController;
 Route::group(['middleware' => ['auth:sanctum']], function () {
     // Auth
     Route::get('/logout', [AuthController::class, 'logout']);
+    Route::post('/update/{user}', [AuthController::class, 'update']);
 
     // Category
     Route::post('/category', [CategoryController::class, 'store']);
