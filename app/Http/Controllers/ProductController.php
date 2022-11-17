@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function getFeatured()
     {
-        return Product::where('featured', true)->get();
+        return Product::where('featured', true)->get()->take(3);
     }
 
     /**
