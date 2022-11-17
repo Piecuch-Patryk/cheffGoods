@@ -19,6 +19,16 @@ class ProductController extends Controller
     }
 
     /**
+     * Display a listing where featured equals true
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getFeatured()
+    {
+        return Product::where('featured', true)->get();
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreProductRequest  $request
