@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,6 @@ Route::get('/products/search/{name}', [ProductController::class, 'search']);
 // Reviews
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::post('/review', [ReviewController::class, 'store']);
+
+// Newsletter
+Route::post('/newsletter', [NewsletterController::class, 'store']);
